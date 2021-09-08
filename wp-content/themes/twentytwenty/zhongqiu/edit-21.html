@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>親子嘉年華</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="poptek" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+    <script type="text/javascript" src="css/jquery-1.8.2.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="images/header.png">
+    </div>
+    <div class="container">
+        <!--startprint-->
+        <div class="container-image" id="container-image">
+            <img id="xiangkuan" src="images/image-1.png">
+            <img id="xmTanImg"/> 
+        </div>
+        <!--endprint-->
+                 
+    </div>
+
+    <div class="footer">
+        <img class="footer_bg" src="images/footer.png">
+        <div class="title">
+            <input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" style="display:none">
+            <!-- <input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*"/> -->
+            <img src="images/buttom-1.png" onclick="F_Open_dialog()">
+            <img src="images/buttom-2.png" onclick="doPrint()">
+            <img src="images/buttom-3.png" id="btnOk">
+        </div>
+    </div>   
+<script src="css/zepto.js"></script>
+<script type="text/javascript"> 
+      
+    (function(){
+
+
+        var util = {
+
+          getEl : function(selector){
+          return document.getElementById(selector);
+          },
+
+          isNull : function( str ){
+
+            return str == null || str.length == 0 
+          },
+
+          loadImg : function(imgurl, callback ){
+
+                var img = new Image();
+
+                    img.src = imgurl || "img/mm2.jpg";
+
+                img.onload = function(){
+
+                  callback && callback( img )
+                }         
+          }
+        }
+
+
+            // 平移
+            ;(function(){
+                　// 移动相册的动作
+                var hasTouch = 'ontouchstart' in window;
+                // console.log(window);
+                var STA_EN = hasTouch ? "touchstart" : "mousedown",
+                    MV_EV = hasTouch ? "touchmove":"mousemove",
+                    END_EV = hasTouch ? "touchend" : "mouseup",
+                    END_Cancel = hasTouch ? "touchcancel" : "mouseout";
+
+                util.getEl("photoWrap_canvas").addEventListener(STA_EN,start,false);
+                util.getEl("photoWrap_canvas").addEventListener(MV_EV,move,false);
+                util.getEl("photoWrap_canvas").addEventListener(END_EV,end,false);
+                util.getEl("photoWrap_canvas").addEventListener(END_EV,end,false);
+
+                var bStart = 0;
+
+                var bginX,bginY,startX = 0,startY = 0;
+
+                var offsetX_ctx = 0,offsetY_ctx = 0;
+
+                function start(ev){
+                    // console.log("32")
+                    ev.preventDefault();
+                    bStart = 1;
+
+                    var poi = getEvtLocation(ev);
+
+                    // console.log(poi.x,poi.y);
+                    bginX = poi.x;
+                    bginY = poi.y;
+                }
+
+                function move(ev){
+                    ev.preventDefault();
+
+                    if(bStart === 0)return;
+
+                    var poi = getEvtLocation(ev);
+
+                    var offsetX = poi.x - bginX,
+                        offsetY = poi.y - bginY;
+
+                    album.translate(offsetX, offsetY);
+                    album.onDraw();
+
+
+                    bginX = poi.x;
+                    bginY = poi.y;
+                }
+                function end (ev) {
+                    // body...
+                    ev.preventDefault();
+
+                    bStart = 0;
+                }
+                function getEvtLocation(ev){
+                    if(util.isNull(ev)) return;
+                    // var touch = ev.touches[0];
+
+                    return{
+                        x : ev.offsetX,
+                        y : ev.offsetY
+                    }
+                }
+            })()
+
+
+
+
+            function ComposeAlbum(){
+
+                // this.ctx, 
+
+                // this.ctxW, this.ctxH,
+
+                // this.imgH, this.imgW;
+
+                this._init();
+            } 
+            ComposeAlbum.prototype = {
+
+                _init : function(){
+
+                    var c = util.getEl("myCanvas");
+
+                    var ctx = this.ctx = c.getContext("2d");
+
+                    var ctxW = imgW = this.ctxW = this.imgW = c.width;
+
+                    var ctxH = imgH = this.ctxH = this.imgH = c.height;
+
+                    var self = this;
+
+                    util.loadImg("img/mm1.jpg", function( imgObj ){
+
+                        self.imgObj = imgObj;
+
+                        // 把canvas的原点设置为图片的中心点，但是现实的时候，要还原，否则图片会已左上角钉在canvas的中心点上
+                        ctx.translate(imgW / 2, imgH / 2);
+
+                        // 清楚移动痕迹
+                        ctx.clearRect(-ctxW, -ctxH, 2 * ctxW, 2 * ctxH);
+
+                        // -imgW/2 是为了让图片显示的回复正常，因为上面显示的时候做了旋转
+                        ctx.drawImage(imgObj, -imgW / 2, -imgH / 2, 300, 400);
+
+                        ctx.save();
+
+                    });
+
+                },
+
+                onDraw : function(){
+
+
+                    var ctxW = imgW = this.ctxW,
+
+                         ctxH = imgH = this.ctxH;
+                    
+                    // 这是清除图片因为平移而造成的痕迹，-ctxw是图片平移的反方向的位置，2*ctxW，是清除的面积
+                    this.ctx.clearRect(-ctxW, -ctxH, 2 * ctxW, 2 * ctxH);
+
+                    // -imgW/2 是为了让图片显示的回复正常，因为上面显示的时候做了旋转
+                    this.ctx.drawImage(this.imgObj, -imgW / 2, -imgH / 2, 300, 400);
+                    
+                },
+
+                // 缩放
+                scale : function( scale ){
+
+                    this.ctx.scale(scale, scale);
+                },
+
+                // 转换
+                translate : function(offsetX, offsetY){
+
+                    this.ctx.translate(offsetX,offsetY);
+                },
+
+                // 改变背景图片
+                changeImg : function( imgSrc ){
+                    var self = this;
+
+                    util.loadImg(imgSrc, function(imgObj){
+
+                        self.imgObj = imgObj;
+
+                          // -imgW/2 是为了让图片显示的回复正常，因为上面显示的时候做了旋转
+                        self.ctx.drawImage(imgObj, -self.imgW / 2, -self.imgH / 2, 300, 400);
+
+                        self.ctx.save();                      
+                    })
+                }
+            }
+
+            // 完成
+            var Make = (function(){
+
+                var newCanvas = document.createElement('canvas');
+
+                    newCanvas.width = 300;
+
+                    newCanvas.height = 400;
+
+                    newxCtx = newCanvas.getContext("2d");
+
+
+                return {
+                    over : function(){
+
+                        var img = new Image();
+
+                        img.src = $(".photoWrap_canvas").attr("data-url");
+
+                        img.onload = function(){
+
+                            // $(".photoWrap_canvas").hide();
+                            
+                            newxCtx.drawImage(util.getEl("myCanvas"), 0, 0);
+                            newxCtx.drawImage(img, 0, 0, 300, 400);  
+                            var a = document.createElement("a");
+                            a.href = newCanvas.toDataURL();
+                            a.download = name;
+                            a.click();
+                            $(".result").prepend(newCanvas);
+                        }                        
+                    },
+
+                    addFont : function(text){
+                        if( util.isNull( newxCtx ) ) return;
+
+                        newxCtx.font = "40px Arial";
+
+                        newxCtx.fillText(text, 50, 100);                    
+                    }
+                }
+            })()
+
+            function scrollFnc( album ){
+
+                var scale = 1;
+
+                return function( ev ){
+
+                    var delta = ev.wheelDelta;
+
+                    // debugger
+                    if(delta > 0 && scale <= 5){    //滚轮向上
+
+                        // scale += 0.1;
+                        
+                        scale = 1.2;
+
+                    }else if(delta < 0 && scale >= 1){
+
+                        // scale -= 0.2;
+                        
+                        scale = 0.8; 
+                    }
+
+                    album.scale( scale );
+                    album.onDraw();
+                }    
+            }
+
+
+            var album = null;
+
+            function initPage(){
+
+                album = new ComposeAlbum();
+
+                // 添加滚动缩放
+                window.onmousewheel = document.onmousewheel = scrollFnc(album);
+
+            }
+
+            var initEvent = function(){
+
+                // 切换相框
+                $(".photoWrap").on("click","img",function(){
+
+                    var src = $(this).attr("src"),
+
+                        cssStyle = {
+                            'background-image' : "url(" + src + ")"
+                        }
+
+                    $(".photoWrap_canvas").css(cssStyle).attr("data-url", src);
+
+                })      
+
+                // 切换图片
+                $('.imgWrap').on('click', 'img', function(){
+                    var imgSrc = $(this).attr('src');
+
+                    album.changeImg( imgSrc );
+
+                })
+
+
+                // 完成制作
+                $("#btnOk").click(function(){
+
+                    Make.over();
+                })
+
+                // 添加文字
+                $("#btnAddFont").click(function(){
+
+                    var val = $("#txtKey").val();
+
+                    if(val == null || val.length == 0) return;
+
+                    Make.addFont( val );
+
+                })
+                
+
+            }
+
+
+        initPage();
+
+        initEvent();
+
+
+    })()
+</script>
+</body>
+</html>

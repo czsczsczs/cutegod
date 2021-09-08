@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <title>福滿中秋，定制您的專屬賀圖</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="
+        width = device-width ,
+  height = device-height ,
+        initial-scale = 1,
+        minimum-scale = 1,
+        maximum-scale = 1,
+        user-scalable =no,"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="poptek" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+    <script type="text/javascript" src="css/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="css/js.js"></script>
+    <script type="text/javascript" src="css/require.js" ></script> 
+    <script type="text/javascript" src="css/exif.js" ></script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="images/header.png">
+    </div>
+    <div class="container">
+        <!--startprint-->
+        <div class="container-image" id="container-image">
+            <img id="xiangkuan" src="images/image-1.png">
+            <img id="xmTanImg"/>
+        </div>
+        <!--endprint-->
+        
+         
+    </div>
+    <div class="" style="bottom: 0;width: 100%;text-align: center;padding: 1rem 0">
+            <input type="button" value="放大" onclick="imgToSize(20)" >
+            <input type="button" value="縮小" onclick="imgToSize(-20);">
+            <input type="button" value="順時針轉" id="imgReverse1"> 
+            <input type="button" value="逆時針轉" id="imgReverse2"> 
+            <input type="button" value="修改相框"> 
+        </div>    
+    <div class="footer">
+        <img class="footer_bg" src="images/footer.png">
+        <div class="title">
+           <!--  <input type="file" id="uploadImage" onchange="selectFileImage(this)" style="display:none"> -->
+            <input type="file" accept="image/*" id="uploadImage" onchange="selectFileImage(this);" style="display:none" /> 
+            <!-- <input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*"/> -->
+            <img src="images/buttom-1.png" onclick="F_Open_dialog()">
+            
+            <img src="images/buttom-3.png" id="button_">
+        </div>
+    </div>   
+    <!-- <input type="hidden" id="refreshed" value="no"> -->
+    <script  type="text/javascript" >
+window.onload = function(){ 
+var deg = 0;
+  document.getElementById("imgReverse1").onclick = function () {
+      deg += 15;
+      document.getElementById("xmTanImg").style.transform = "rotate(" + deg + "deg)";
+  }
+
+  document.getElementById("imgReverse2").onclick = function () {
+      deg -= 15;
+      document.getElementById("xmTanImg").style.transform = "rotate(" + deg + "deg)";
+  } 
+    if(window.name!="hasLoad"){      
+        location.reload();      
+        window.name = "hasLoad";      
+    }else{      
+        window.name="";      
+    }  
+}
+        // history.go(0)
+        $(document).ready( function(){
+                $("#button_").on("click", function(event) {
+                        event.preventDefault();
+                        var textA=$("#container-image");
+                        html2canvas(textA, {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            var dataUrl = canvas.toDataURL();
+                            var newImg = document.createElement("img");
+                            newImg.src =  dataUrl;
+							console.log(newImg.src)
+                             $.ajax({  
+                            type : "POST",  
+                            url : 'test.php',  
+                            data : {url:newImg.src},  
+                            timeout : 60000,  
+                            success : function(data){  
+                                var alink = document.createElement("a");
+                                alink.href = data;
+                                alink.click();
+                                }  
+                            });  
+
+                        }
+                    });
+                }); 
+
+        });
+
+        </script>
+   <script type='text/javascript'>
+function update() {
+   window.location.href="http://popmacao.com/grandprix/index.html";
+}
+    function doPrint() {
+            bdhtml=window.document.body.innerHTML;
+            sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+            eprnstr="<!--endprint-->"; //结束打印标识字符串
+            prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+            prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
+            window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
+            window.print(); //调用浏览器的打印功能打印指定区域
+            window.document.body.innerHTML=bdhtml; // 最后还原页面
+          // });
+       
+    }
+    var size=0;
+  
+
+    //放大缩小图片
+    function imgToSize(size) {
+	   var img = $("#xmTanImg");
+	   var oWidth=img.width(); //取得图片的实际宽度
+	   var oHeight=img.height(); //取得图片的实际高度
+	   img.width(oWidth + size);
+	   img.height(oHeight + size/oWidth*oHeight);
+    }
+
+
+    // 翻转图片
+    function imgReverse(arg) {
+   var img = $("#xmTanImg");
+   if (arg == 'h')
+   {
+   img.css( {'filter' : 'fliph','-moz-transform': 'matrix(-1, 0, 0, 1, 0, 0)','-webkit-transform': 'matrix(-1, 0, 0, 1, 0, 0)'} );
+   }else{
+   img.css( {'filter' : 'flipv','-moz-transform': 'matrix(1, 0, 0, 1, 0, 0)','-webkit-transform': 'matrix(1, 0, 0, 1, 0, 0)'} );
+  }
+    }
+
+   </script>
+    <script type="text/javascript"> 
+        
+        function F_Open_dialog() 
+        { 
+            document.getElementById("uploadImage").click(); 
+        }
+        var div = document.getElementById('xmTanImg');
+        div.addEventListener('touchmove', function(event) {
+        event.preventDefault();//阻止其他事件
+        // 如果这个元素的位置内只有一个手指的话
+        if (event.targetTouches.length == 1) {
+            var touch = event.targetTouches[0];  // 把元素放在手指所在的位置
+            div.style.left = touch.pageX + 'px';
+            div.style.top = touch.pageY + 'px';
+        }
+    }, false);
+
+
+        $("#button").click(function(){
+            var xmTanImg = document.getElementById("xmTanImg");
+            var xiangkuan = document.getElementById("xiangkuan");
+            var image_type = document.getElementById("image_type");
+            var xmTanImgtop = xmTanImg.offsetTop;    
+            var xmTanImgleft = xmTanImg.offsetLeft;
+            var xiangkuantop = xiangkuan.offsetTop;     
+            var xiangkuanleft = xiangkuan.offsetLeft;
+            var image1 = xiangkuan.src;
+            var image2 = xmTanImg.src;
+            console.log(xmTanImgtop-xiangkuantop);
+            console.log(xmTanImgleft-xiangkuanleft);
+            
+            });
+            function moveCursor(cell){
+                
+            }
+
+            //判断浏览器是否支持FileReader接口
+            if (typeof FileReader == 'undefined') {
+                document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+                //使选择控件不可操作
+                document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+            }
+
+            //选择图片，马上预览
+            function xmTanUploadImg(obj) {
+                
+                var file = obj.files[0];
+                console.dir(file);
+                
+                // saveUser2();
+                
+                var reader = new FileReader();
+
+                //读取文件过程方法
+                reader.onloadstart = function (e) {
+                    console.log("开始读取....");
+                }
+                reader.onprogress = function (e) {
+                    console.log("正在读取中....");
+                }
+                reader.onabort = function (e) {
+                    console.log("中断读取....");
+                }
+                reader.onerror = function (e) {
+                    console.log("读取异常....");
+                }
+                reader.onload = function (e) {
+                    console.log("成功读取....");
+                    var img = document.getElementById("xmTanImg");
+                    img.src = e.target.result;
+                    
+                    //或者 img.src = this.result;  //e.target == this
+                }
+
+                reader.readAsDataURL(file)
+            }
+        </script>
+        <script type="text/javascript">
+    var div1 = document.querySelector('#xmTanImg');
+//限制最大宽高，不让滑块出去
+var maxW = document.body.clientWidth - div1.offsetWidth;
+var maxH = document.body.clientHeight - div1.offsetHeight;
+ 
+//手指触摸开始，记录div的初始位置
+div1.addEventListener('touchstart', function(e) {
+  var ev = e || window.event;
+  var touch = ev.targetTouches[0];
+  oL = touch.clientX - div1.offsetLeft;
+  oT = touch.clientY - div1.offsetTop;
+  document.addEventListener("touchmove", defaultEvent, false);
+});
+//触摸中的，位置记录
+div1.addEventListener('touchmove', function(e) {
+  var ev = e || window.event;
+  var touch = ev.targetTouches[0];
+  var oLeft = touch.clientX - oL;
+  var oTop = touch.clientY - oT;
+  // if(oLeft < 0) {
+  //   oLeft = 0;
+  // } else if(oLeft >= maxW) {
+  //   oLeft = maxW;
+  // }
+  // if(oTop < 0) {
+  //   oTop = 0;
+  // } else if(oTop >= maxH) {
+  //   oTop = maxH;
+  // }
+ 
+  div1.style.left = oLeft - 20 + 'px';
+  div1.style.top = oTop- 20 + 'px';
+ 
+});
+//触摸结束时的处理
+div1.addEventListener('touchend', function() {
+  document.removeEventListener("touchmove", defaultEvent);
+});
+ 
+//阻止默认事件
+function defaultEvent(e) {
+  // e.preventDefault();
+}
+  </script>
+</body>
+</html>

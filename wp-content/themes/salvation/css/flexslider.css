@@ -1,0 +1,115 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ * Contributing author:Tyler Smith (@mbmufffin)
+ */
+/* Browser Resets */
+.flex-container a:active, .flexslider a:active, .flex-container a:focus, .flexslider a:focus { outline: none }
+.slides, .flex-control-nav, .flex-direction-nav { margin: 0; padding: 0; list-style: none !important; }
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider { margin: 0; padding: 0; }
+.flexslider .slides > li { display: none; list-style: none; position: relative; -webkit-backface-visibility: hidden; }
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img { /*height: 355px;*/display:block  }
+.flex-pauseplay span { text-transform: capitalize }
+/* Clearfix for the .slides element */
+.slides:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+html[xmlns] .slides { display: block }
+* html .slides { height: 1% }
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child { display: block }
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { margin: 0; position: relative; zoom: 1; }
+.flex-container { margin-bottom: 20px }
+.flex-viewport { max-height: 2000px; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px }
+.flexslider .slides { zoom: 1; margin: 0; }
+.slider-container.loading .flex-container { opacity: 0; height: 0px; }
+.flex-container.loading:before { content: 'Loading Slider...'; display: block; margin: 0; text-align: center; color: #1B1B1B; font-weight: bold; font-size: 18px; }
+/* Direction Nav */
+.flex-container .flex-direction-nav { *height: 0; margin: 0 !important; }
+.flex-container .flex-direction-nav a { }
+.slider-container .flexslider .flex-direction-nav .flex-next { left: 15px }
+.slider-container .flex-direction-nav .flex-prev { bottom: 16.6% }
+.flexslider .flex-next:hover, .flexslider .flex-prev:hover { opacity: 1 }
+.flex-direction-nav .flex-disabled { opacity: .8!important; filter: alpha(opacity=30); cursor: default; }
+.slider-thumbnail { width: 49%; float: left; margin: 0 2% 0 0; }
+.flex-caption { color: #795e4b }
+.slide-excerpt { text-shadow: 0 1px 0px rgba(255, 255, 255, 0.5); }
+/* Control Nav */
+.flex-control-nav { position: absolute; bottom: 8%; margin: 0!important; right: 3%; }
+.flex-control-nav li { margin: 0 2px; zoom: 1; *display: inline; float: left; }
+.flex-control-paging li a { width: 11px; height: 11px; display: block; background: #A5A5A5; cursor: pointer; text-indent: -9999px; border-radius: 20px; }
+.flex-control-paging li a:hover { background: #FFF }
+.flex-control-paging li a.flex-active { background: #FFF; cursor: default; }
+.flex-control-thumbs { margin: 5px 0 0; position: static; overflow: hidden; }
+.flex-control-thumbs li { width: 25%; margin: 0; }
+.flex-control-thumbs img { width: 100%; display: block; opacity: .7; cursor: pointer; }
+.flex-control-thumbs img:hover { opacity: 1 }
+.flex-control-thumbs .flex-active { opacity: 1; cursor: default; }
+/* Widget */
+#sidebars .widget-slider .wp-post-image { margin: 0 }
+.widget .slides li img { width: 100% }
+.widget-slider { min-height: 210px; position: relative; }
+.loading .widget-slider { display: none }
+.widget .slides li { margin-left: 0; list-style: none; margin-bottom: 0; max-height: 100%; }
+.widget .slides li a { position: relative; float: left; }
+.widget-slider .flex-caption { position: absolute; width: 100%; bottom: 0; left: 0; }
+.widget-slider .slider-title { overflow: hidden; bottom: 0; background: rgba(241,132,105,.94); color: #fff; padding: 10px; width: 100%; clear: both; font-size: 16px; font-weight: normal; margin: 0; }
+.slider-widget-container .flex-direction-nav li { position: absolute; bottom: 50%; right: 0; margin: 0 0 -14px 0; width: 28px; height: 28px; text-align: center; list-style: none; }
+.slider-widget-container .flex-direction-nav li:first-child { right: auto; left: 0; }
+.slider-widget-container .flex-direction-nav a { width: 28px; line-height: 26px; font-size: 28px; color: #fff; opacity: 0.7; text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.8); }
+.slider-widget-container .flex-direction-nav a:hover { opacity: 1 }
+.widget-slider, .widget-carousel { position: relative; max-width: 348px; }
+.widget-carousel li { margin: 2px; opacity: .8; transition: all 0.3s ease; }
+.widget-carousel li.flex-active-slide, .widget-carousel li:hover { opacity: 1 }
+/* Homepage Slider */
+.home-slider { padding: 0 10px }
+.home-slider .flex-container { margin-bottom: 50px }
+#slider { background-color: #f6f0e8 }
+#slider .slides > li > a, #slider .flex-caption { float: left }
+#slider .slides > li > a { width: 57.66%; position: absolute; height: 100%; background-size: cover; background-position: 50% 0; background-repeat: no-repeat; background-attachment: scroll; overflow: hidden; }
+#slider .flex-caption { width: 42.34%; float: right; }
+#slider .flex-direction-nav { position: absolute; right: 20px; bottom: 28px; }
+#slider .flex-direction-nav li { float: left; display: inline-block; }
+#slider .flex-direction-nav a { float: left; width: 28px; line-height: 26px; font-size: 14px; color: #f18469; text-align: center; background-color: transparent; border: 1px solid #f18469; border-radius: 50%; }
+#slider .flex-direction-nav a:hover { color: #ffffff; background-color: #f18469; }
+#slider .flex-direction-nav .flex-prev { margin-right: 5px }
+#slider .readMore { position: absolute; bottom: 0; font-size: 16px; margin-top: 20px; margin-bottom: 30px; }
+#slider .latest-post-inner { min-height: 445px }
+#slider .latest-post-inner .title { font-size: 26px; line-height: 43px; margin-bottom: 20px; }
+#slider .latest-post-inner .post-info { margin-bottom: 10px }
+#slider .front-view-content { line-height: 28px; margin-bottom: 78px; }
+/* Alt Homepage Slider */
+#homepage-slider { float: left; width: 100%; position: relative; }
+#homepage-slider:after { content: ""; position: absolute; width: 100%; height: 5px; left: 0; bottom: 0; background-color: #ff9074; }
+#homepage-slider li { background-size: cover; background-position: 50% 0; background-repeat: no-repeat; background-attachment: scroll; overflow: hidden; }
+#homepage-slider .container { color: #70534c; font-size: 19px; line-height: 37px; padding: 70px 10px 140px; }
+#homepage-slider .slide-title { color: #f18469 }
+#homepage-slider .slide-content { position: relative }
+#homepage-slider .slide-excerpt, #homepage-slider .slide-buttons { padding: 0 100px; max-width: 700px; }
+.prev-slide, .next-slide { display: inline-block; position: absolute; top: 50%; width: 50px; margin-top: -25px; font-size: 25px; line-height: 48px; color: #f18469; text-align: center; background-color: transparent; border: 1px solid #f18469; border-radius: 50%; }
+.prev-slide:hover, .next-slide:hover { color: #ffffff; background-color: #f18469; }
+.prev-slide { left: 0 }
+.next-slide { right: 0 }
+#homepage-slider .slide-buttons { margin-top: 15px }
+#homepage-slider .slide-buttons i { padding-right: 18px }
+#homepage-slider .button { margin: 15px 35px 0 0 }
+@media screen and (max-width:756px) { 
+    .widget-slider { min-height: 100% }
+    .prev-slide, .next-slide { position: relative; margin: 15px 15px 15px 0; }
+    #homepage-slider .slide-excerpt, #homepage-slider .slide-buttons { padding: 0; max-width: 100%; }
+    #slider .slides > li > a, #slider .flex-caption { width: 100% }
+    #slider .slides > li > a { height: 0; padding-top: 40%; position: relative; }
+    #slider .latest-post-inner { min-height: 0 }
+}
+@media screen and (max-width:550px) { 
+    #slider .slides > li > a { padding-top: 100% }
+}

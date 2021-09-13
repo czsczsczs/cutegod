@@ -41,6 +41,7 @@ if(strlen($show_header_at) && $show_header_at > 0){
 			<?php endif; ?>
 		</nav>
 		<!-- #access -->
+    <a href="#" class="header-share"><img src="http://cutegod.cn/shijie/wp-content/uploads/sites/4/2021/09/P1-頂部-微信-e1631505160339.png"/></a>
 		<?php echo wp_kses_post($header_tools );//escaped layout part ?>
 		<?php if ( $socials ) {
 			//check what color variant we use

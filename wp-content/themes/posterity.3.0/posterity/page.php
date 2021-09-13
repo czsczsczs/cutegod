@@ -33,7 +33,7 @@ else{
 		}
 		?>
 
-		<article id="content" class="clearfix"<?php posterity_schema_args('creative'); ?>>
+    <article id="content" class="clearfix"<?php posterity_schema_args('creative'); ?>>
 			<div class="content-limiter">
 				<div id="col-mask">
 

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f30f99cd-7f7c-4248-a9d8-25af5de8beb5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/comments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-chat.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-chat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-link.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-link.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-status.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content-status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/content.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/css/customize-preview.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/css/customize-preview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/css/woocommerce-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/css/woocommerce-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/front-page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/header-variants/horizontal-one-line.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/header-variants/horizontal-one-line.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/style-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/style-rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/wpml-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/posterity.3.0/posterity/wpml-config.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1xt0abOhMO8XJxFKjBwWCf0qhFa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f30f99cd-7f7c-4248-a9d8-25af5de8beb5" name="Default Changelist" comment="" />
+      <created>1631159150968</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631159150968</updated>
+      <workItem from="1631159166233" duration="37243000" />
+      <workItem from="1631671775027" duration="11032000" />
+      <workItem from="1631698664981" duration="19238000" />
+      <workItem from="1631848597142" duration="14135000" />
+      <workItem from="1631870992301" duration="132000" />
+      <workItem from="1631871238389" duration="157000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="695" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1631870763825">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="695" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1631870763825" />
+    <state x="703" y="372" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1631870428132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="703" y="372" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1631870428132" />
+    <state x="463" y="233" width="1064" height="675" key="find.popup" timestamp="1631845505357">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="463" y="233" width="1064" height="675" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631845505357" />
+    <state x="728" y="361" key="search.everywhere.popup" timestamp="1631777736578">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="361" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1631777736578" />
+  </component>
+</project>

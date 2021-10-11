@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * WordPress 基本設定檔。
  *
  * 本檔案包含以下設定選項： MySQL 設定、資料表前綴、
@@ -122,3 +122,5 @@ require_once(ABSPATH . 'wp-settings.php');
 
 /*多站點*/
 define('WP_ALLOW_MULTISITE', true);
+
+

@@ -73,7 +73,7 @@ else{
 	// Elementor `archive` location
 	if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'archive' ) ){
 
-		posterity_title_bar( 'outside', $_title );
+		/*posterity_title_bar( 'outside', $_title );*/
 		?>
 
 
@@ -84,6 +84,8 @@ else{
 						<?php
 						posterity_display_items_from_query_post_list();
 						?>
+
+
 						<div class="clear"></div>
 
 						<?php the_posts_pagination();
@@ -91,10 +93,11 @@ else{
 
 					</div>
 					<?php get_sidebar(); ?>
+					<div style="position: absolute;margin-top: 60px;margin-left: 53%;width: 10px;height: 100%;background: #a9a9a91f;"></div>
 				</div>
 			</div>
 		</article>
-
+		<?php MBThemes_paging();?>
 		<?php
 	}
 

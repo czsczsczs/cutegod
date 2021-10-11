@@ -18,7 +18,7 @@ else{
     // Elementor `single` location
     if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
         the_post();
-        posterity_title_bar();
+        
         ?>
 
         <article id="content" class="clearfix"<?php posterity_schema_args('creative'); ?>>
@@ -31,6 +31,7 @@ else{
                                 <?php posterity_title_bar( 'inside' ); ?>
                                 <div class="real-content entry-content"<?php posterity_schema_args('text'); ?>>
                                     <?php the_content(); ?>
+                                    
                                     <div class="clear"></div>
                                     <?php
                                     //no need for wp_link_pages, cause the_content takes care of it
@@ -41,9 +42,7 @@ else{
                                 </div>
                             </div>
 
-                            <?php posterity_posts_navigation(); ?>
-
-                            <?php posterity_author_info(); ?>
+                          
 
                             <?php
                             // If comments are open or we have at least one comment, load up the comment template.
@@ -54,7 +53,7 @@ else{
                         </div>
                     </div>
 
-                    <?php get_sidebar(); ?>
+                   
                 </div>
             </div>
         </article>

@@ -35,11 +35,11 @@ th, td{
     text-decoration: none;
     width: auto;
     z-index: 100000; /* Above WP toolbar */
- 
+
     -webkit-transition: top .75s ease-out;
     transition: top .75s ease-out;
 }
- 
+
 .skip-link:focus {
     color: #21759b;
     top: 7px;
@@ -401,6 +401,7 @@ body{
 #mid{
 	overflow-x: hidden; /* Revo Slider fancy effects extending */
 	overflow-y: hidden; /* Revo Slider fancy effects extending */
+	margin-top: -24px;
 	position: relative;
 	z-index: 2; /* above background */ /* padding is for full screen, rest for "to-move" class */
 	transition: transform .5s;
@@ -1837,14 +1838,14 @@ a.hidden-logo{
 .header-horizontal #header-tools{
 	padding-left: 15px;
 }
-.header-horizontal #header-tools::before,
-.header-horizontal .head .socials::before{
+.header-horizontal #header-tools::after,
+.header-horizontal .head .socials::after{
 	content: "";
 	display: inline-block;
 	height: 25px;
 	width: 1px;
-	background-color: #E5E5E5;
-	margin-left: 15px;
+	/* background-color: #E5E5E5; */
+	margin-left: 36px;
 	vertical-align: middle;
 }
 .header-horizontal .head .socials a{
@@ -2099,7 +2100,7 @@ header.header-variant-one_line_centered .socials{
 	height: 40px;
 	min-height: 40px;
 }
- 
+
 /* ==========================================================================
    Top closable message
    ========================================================================== */
@@ -2635,6 +2636,7 @@ header.header-variant-one_line_centered .socials{
 	background-color: #1E1E1E;
 	width: 100%;
 	box-sizing: border-box;
+	z-index: 1;
 }
 .foot-items,
 #footer .foot-widgets{
@@ -2646,7 +2648,7 @@ header.header-variant-one_line_centered .socials{
 }
 #footer.narrow .foot-items .foot-content,
 #footer.narrow .foot-widgets{
-	max-width: 1170px;
+	max-width: 100%;
 }
 .foot-items{
 	color: #989898;
@@ -2690,7 +2692,7 @@ header.header-variant-one_line_centered .socials{
 	clear: both;
 }
 
-#footer li a{text-decoration:none;} 
+#footer li a{text-decoration:none;}
 
 
 /* content */
@@ -3273,6 +3275,7 @@ a.rsswidget{
 	position: relative;
 	width: 100%;
 	right: 25%;
+	margin-left: 7%;
 }
 .content-box{
 	float: left;
@@ -4145,7 +4148,7 @@ h2.post-title:hover a {
 .item-video .mejs-container,
 .posts-list .item-video .mejs-container,
 .gallery-frame .archive-item .mejs-container,
- 
+
 .item-video .mejs-overlay,
 .item-video .mejs-poster,
 .gallery-frame .archive-item .mejs-overlay,
@@ -7354,7 +7357,7 @@ textarea{
 		margin: 50px -60px -60px;
 		padding: 40px 60px;
 	}
-	
+
 	.thumb-tray-button{
 		margin-left: 15px;
 	}
@@ -7834,7 +7837,7 @@ textarea{
 		bottom: 20px;
 	}
 
- 
+
 }
 
 

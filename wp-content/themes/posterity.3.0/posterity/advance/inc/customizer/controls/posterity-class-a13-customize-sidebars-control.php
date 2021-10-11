@@ -51,7 +51,7 @@ class Posterity_A13_Customize_Sidebars_Control extends WP_Customize_Control {
 					<button class="remove"><?php esc_html_e( 'Remove this sidebar', 'posterity' ); ?></button>
 				</div>
 			<# } ); #>
-			<button class="button button-primary add-new"><?php esc_html_e( 'Add sidebar', 'posterity' ); ?></button>
+			<button class="button button-primary add-new">fffff<?php esc_html_e( 'Add sidebar', 'posterity' ); ?></button>
 
 		</div>
 		<?php
